@@ -20,7 +20,15 @@ exports.elections_list = function(req, res) {
       if (err) {
         return next(err);
       }
-      console.log(list_books);
       res.json(list_books);
     });
+
+  exports.elections_add = function(req, res) {
+    Elections.find({}).exec(function(err, list_books) {
+      if (err) {
+        return next(err);
+      }
+      res.json(list_books);
+    });
+  };
 };
