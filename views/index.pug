@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  ul
+    each book in book_list
+      li
+        a(href=book.country) #{book.country}
+        |  #{book.type_of_election} (#{book.date_of_election})
+
+    else
+      li There are no books.
