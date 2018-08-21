@@ -4,12 +4,12 @@ var router = express.Router();
 var elections_controller = require('../controllers/electionsController');
 
 /* GET users listing. */
-router.get('/api', elections_controller.index);
+router.get('/', elections_controller.elections_list);
 
 /* GET users listing. */
-router.get('/list', elections_controller.elections_list);
+router.get('/list', elections_controller.index);
 
 /* POST election */
-router.post('/api', elections_controller.elections_add);
+//router.post('/', elections_controller.elections_add);
 
 module.exports = router;

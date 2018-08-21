@@ -10,8 +10,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-/* Mongoose mLab Database */
-
+// Mongoose mLab Database
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://jgreve:practice1@ds058369.mlab.com:58369/prime';
 mongoose.connect(mongoDB);
@@ -33,7 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', electionsRouter);
 app.use('/elections', electionsRouter);
 app.use('/users', usersRouter);
 
