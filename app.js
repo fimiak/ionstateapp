@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors');
+var apiRouter = require('./routes/api');
 var indexRouter = require('./routes/index');
-var electionsRouter = require('./routes/elections');
+var nationsRouter = require('./routes/nations');
+var summitsRouter = require('./routes/summits');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -21,8 +23,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
-app.listen(process.env.PORT || 3000, function() {
+app.use(cors());
+app.listen(process.env.PORT || 3001, function() {
   console.log('Express server listening.');
 });
 
@@ -32,8 +34,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', electionsRouter);
-app.use('/elections', electionsRouter);
+app.use('/', indexRouter);
+app.use('/api', apiRouter);
+app.use('/nations', nationsRouter);
+app.use('/summits', summitsRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

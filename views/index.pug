@@ -1,14 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h3= title
+  p Welcome to #[em IONSTATE], an administration panel for the ionstate.com domain. Written in NodeJS, ExpressJS, and using MongoDB and Mongoose.
+  br
 
-  ul
-    each book in book_list
-      li
-        a(href=book.country) #{book.country}
-        |  #{book.type_of_election} (#{book.date_of_election})
+  h4 Database count
 
-    else
-      li There are no books.
+  if error
+    p Error getting dynamic content.
+  else
+    p The app has the following record counts:
+
+    ul
+      li #[strong Nations:] !{data.nation_count}
+      li #[strong Leaders:] !{data.leader_count}
+      li #[strong News:] !{data.news_count}
+      li #[strong Summits:] !{data.summit_count}
