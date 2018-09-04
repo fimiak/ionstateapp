@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  hr
+
+  ul(class='list')
+    each leader in leader_list
+      li
+        a(href=`${leader.url}`) #{leader.first_name} #{leader.last_name}
+        |  -- #{leader.nation.name}
+
+    else
+      li There are no leaders to list.

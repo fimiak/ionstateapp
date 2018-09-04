@@ -10,8 +10,9 @@ var NationsSchema = new Schema({
   currency: { type: String, required: true },
   elections: { type: Date },
   life: { type: Number },
-  urban: { type: Number }
-  //leader: [{ type: Schema.Types.ObjectId, ref: 'Leaders' }],
+  flag: { type: String },
+  urban: { type: Number },
+  leader: { type: Schema.Types.ObjectId, ref: 'Leaders' }
   //map: { type: String }
 });
 

@@ -6,7 +6,9 @@ var logger = require('morgan');
 var cors = require('cors');
 var apiRouter = require('./routes/api');
 var indexRouter = require('./routes/index');
+var leadersRouter = require('./routes/leaders');
 var nationsRouter = require('./routes/nations');
+var newsRouter = require('./routes/news');
 var summitsRouter = require('./routes/summits');
 var usersRouter = require('./routes/users');
 
@@ -15,7 +17,10 @@ var app = express();
 // Mongoose mLab Database
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://jgreve:practice1@ds058369.mlab.com:58369/prime';
-mongoose.connect(mongoDB);
+mongoose.connect(
+  mongoDB,
+  { useNewUrlParser: true }
+);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -24,7 +29,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(cors());
-app.listen(process.env.PORT || 3001, function() {
+app.listen(/*process.env.PORT ||*/ 3001, function() {
   console.log('Express server listening.');
 });
 
@@ -34,9 +39,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// push data that has been fetched to the database
+// app.use(push);
+
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
+app.use('/leaders', leadersRouter);
 app.use('/nations', nationsRouter);
+app.use('/news', newsRouter);
 app.use('/summits', summitsRouter);
 app.use('/users', usersRouter);
 

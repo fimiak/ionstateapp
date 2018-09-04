@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  hr
+
+  ul(class='list')
+    each nation in nation_list
+      li
+        | #{nation.name}
+        |  -- #{nation.leader.first_name} #{nation.leader.last_name}
+    else
+      li There are no nations to list.

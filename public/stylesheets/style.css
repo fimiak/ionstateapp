@@ -27,7 +27,7 @@ hr {
 
 .sidebar-container {
   background: #222;
-  height: 100vh;
+  min-height: 100vh;
   padding: 10px;
   text-align: center;
 }
@@ -42,7 +42,7 @@ hr {
 .content-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .content {

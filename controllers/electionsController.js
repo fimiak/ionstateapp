@@ -1,17 +1,4 @@
 var Elections = require('../models/elections');
-/**
- ** API for JSON list.
- ** GET LIST INDEX page for Elections page.
- ** GET DETAIL page for Elections.
- ** CREATE GET
- ** CREATE POST
- ** DELETE GET
- ** DELETE POST
- ** UPDATE GET
- ** UPDATE POST
- **/
-
-// API GET JSON
 
 // GET LIST INDEX
 exports.elections_list = function(req, res) {
@@ -25,9 +12,6 @@ exports.elections_list = function(req, res) {
     });
 };
 
-// Get DETAIL
-// exports.elections_detail = function(req, res) {};
-/*
 // CREATE GET
 exports.elections_create_get = function(req, res, next) {
   async.parallel(
@@ -44,7 +28,6 @@ exports.elections_create_get = function(req, res, next) {
     }
   );
 };
-*/
 /*
 // CREATE POST
 exports.elections_create_post = [
@@ -101,10 +84,3 @@ exports.elections_create_post = [
   }
 ];
 */
-// Display Election delete form on GET
-exports.elections_delete = function(req, res) {};
-
-// DELETE GET
-// DELETE POST
-// UPDATE GET
-// UPDATE POST

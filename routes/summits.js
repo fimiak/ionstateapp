@@ -3,10 +3,13 @@ var router = express.Router();
 
 var summits_controller = require('../controllers/summitsController');
 
-/* GET users listing. */
+/* GET summit list listing. */
 router.get('/', summits_controller.summit_list);
 
-/* POST election */
-//router.post('/', summits_controller.summits_add);
+/* GET summit create form */
+router.get('/create', summits_controller.summits_create_get);
+
+/* POST summit create form */
+router.post('/create', summits_controller.summits_create_post);
 
 module.exports = router;

@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1 #{title}
+  hr
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='name') Summit:
+      input#name.form-control(type='text', placeholder='UN General Debate, NATO, etc.' name='name' value=(undefined===summit ? '' : summit.name))
+      br
+      label(for='date') Date:
+      input#date.form-control(type='date', name='date' placeholder='mm/dd/yyyy' value=(undefined===summit ? 'summit.jpg' : summit.date) )
+      br
+      label(for='img') Image:
+      input#img.form-control(type='text', placeholder='Displays at 900px width.' name='img' )
+      br
+      label(for='location') Location:
+      input#location.form-control(type='text', placeholder='Paris, France' name='location' )
+      br
+      label(for='url') URL:
+      input#url.form-control(type='text', placeholder='http://www.example.com/' name='url' )
+
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

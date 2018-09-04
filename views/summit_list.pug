@@ -1,13 +1,14 @@
 extends layout
 
 block content
-  h3= title
+  h1= title
+  hr
 
   ul(class='list')
     each summit in summit_list
       li
-        a(href='google.com') #{summit.name}
+        a(href=`${summit.url}`) #{summit.name}
         |  -- (#{summit.date_formatted})
 
     else
-      li There are no summits.
+      li There are no summits to list.

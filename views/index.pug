@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  h3= title
+  h1= title
+  hr
   p Welcome to #[em IONSTATE], an administration panel for the ionstate.com domain. Written in NodeJS, ExpressJS, and using MongoDB and Mongoose.
   br
 
@@ -15,5 +16,5 @@ block content
     ul
       li #[strong Nations:] !{data.nation_count}
       li #[strong Leaders:] !{data.leader_count}
-      li #[strong News:] !{data.news_count}
+      li #[strong Articles:] !{data.article_count}
       li #[strong Summits:] !{data.summit_count}

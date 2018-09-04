@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  hr
+
+  ul(class='list')
+    each article in news_list
+      li
+        a(href=`${article.web_url}`) #{article.headline.main}
+        |  -- #{article.leader.first_name} #{article.leader.last_name}
+        |  -- #{article.date_formatted}
+
+    else
+      li There are no articles to list.
