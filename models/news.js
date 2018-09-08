@@ -4,7 +4,6 @@ var Schema = mongoose.Schema;
 
 var NewsSchema = new Schema({
   name: { type: String },
-  leader: { type: Schema.Types.ObjectId, ref: 'Leaders' },
   author: { type: String },
   web_url: { type: String },
   headline: {
@@ -12,7 +11,32 @@ var NewsSchema = new Schema({
   },
   description: { type: String },
   pub_date: { type: Date },
-  snippet: { type: String }
+  snippet: { type: String },
+  response: {
+    docs: [
+      {
+        byline: {
+          original: { type: String }
+        },
+        headline: {
+          main: { type: String }
+        },
+        multimedia: [
+          {
+            rank: { type: Number },
+            subtype: { type: String },
+            url: { type: String }
+          }
+        ],
+        news_desk: { type: String },
+        pub_date: { type: Date },
+        snippet: { type: String },
+        source: { type: String },
+        web_url: { type: String }
+      }
+    ]
+  },
+  query: { type: String }
 });
 
 NewsSchema.virtual('date_formatted').get(function() {

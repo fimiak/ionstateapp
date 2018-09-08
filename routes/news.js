@@ -10,12 +10,6 @@ router.get('/', news_controller.news_list);
 router.get('/create', news_controller.news_create_get);
 
 /* POST election */
-//router.post('/', news_controller.news_add);
-
-// Fetch NYTimes API
-router.get('/fetch', news_controller.news_push_db);
-
-// Update NYTimes API
-router.get('/update', news_controller.news_create_post);
+router.get('/:query', news_controller.news_create_post);
 
 module.exports = router;

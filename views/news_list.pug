@@ -7,8 +7,8 @@ block content
   ul(class='list')
     each article in news_list
       li
-        a(href=`${article.web_url}`) #{article.headline.main}
-        |  -- #{article.leader.first_name} #{article.leader.last_name}
+        | Query: #{article.query} -- 
+        a(href=`${article.response.docs[0].web_url}`) #{article.response.docs[0].headline.main}
         |  -- #{article.date_formatted}
 
     else

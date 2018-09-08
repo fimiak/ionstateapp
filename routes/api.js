@@ -14,6 +14,8 @@ router.get('/nations', api_controller.nations_api);
 
 router.get('/news', api_controller.news_api);
 
+router.get('/feed', api_controller.news_request);
+
 router.get('/summits', api_controller.summits_api);
 
 module.exports = router;
