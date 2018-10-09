@@ -14,7 +14,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-// Mongoose mLab Database
+// Mongoose mLab Database access
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://jgreve:practice1@ds058369.mlab.com:58369/prime';
 mongoose.connect(

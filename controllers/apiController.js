@@ -1,4 +1,4 @@
-var Leaders = require('../models/leaders');
+let Leaders = require('../models/leaders');
 var Nations = require('../models/nations');
 var Summits = require('../models/summits');
 var News = require('../models/news');
